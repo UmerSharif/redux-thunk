@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
-import { onADD } from "./actions/actions";
 import { connect } from "react-redux";
+
+import { onADD } from "./actions/actions";
+
 function FormData({ formData, onADD }) {
   const Inputref = useRef();
   const OnFormSubmit = e => {

@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
+
 import { addIncrement } from "./actions/actions";
+
 function Counter({ count, addIncrement }) {
   return (
     <div>

@@ -1,9 +1,9 @@
 import React from "react";
+import { Provider } from "react-redux";
 
 import Counter from "./Counter";
 import FormData from "./FormData";
 import store from "./store";
-import { Provider } from "react-redux";
 
 import "./App.css";
 
