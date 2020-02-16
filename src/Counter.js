@@ -1,23 +1,27 @@
 import React from "react";
-import { connect } from "react-redux";
+import { connect, useSelector, useDispatch } from "react-redux";
 
 import { addIncrement } from "./actions/actions";
 
-function Counter({ count, addIncrement }) {
+export default function Counter() {
+  const { count } = useSelector(state => ({
+    count: state.count
+  }));
+  const dispatch = useDispatch();
   return (
     <div>
       <p>Hi I am Counter</p>
       <p>Cunt : {count}</p>
-      <button onClick={addIncrement}>Count Me Dude</button>
+      <button onClick={() => dispatch(addIncrement())}>Count Me Dude</button>
     </div>
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    count: state.count
-  };
-};
+// const mapStateToProps = state => {
+//   return {
+//     count: state.count
+//   };
+// };
 
 // const mapDispatchToProps = dispatch => {
 //   return {
@@ -33,4 +37,4 @@ const mapStateToProps = state => {
 //   };
 // };
 
-export default connect(mapStateToProps, { addIncrement })(Counter);
+// export default connect(mapStateToProps, { addIncrement })(Counter);

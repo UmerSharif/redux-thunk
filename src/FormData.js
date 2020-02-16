@@ -1,13 +1,18 @@
 import React, { useRef } from "react";
-import { connect } from "react-redux";
+import { connect, useSelector, useDispatch } from "react-redux";
 
 import { onADD } from "./actions/actions";
 
-function FormData({ formData, onADD }) {
+export default function FormData() {
+  const dispatch = useDispatch();
+  const { formData } = useSelector(state => ({
+    formData: state.formData
+  }));
+
   const Inputref = useRef();
   const OnFormSubmit = e => {
     e.preventDefault();
-    onADD(Inputref.current.value);
+    dispatch(onADD(Inputref.current.value));
   };
   return (
     <div>
@@ -20,10 +25,10 @@ function FormData({ formData, onADD }) {
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    formData: state.formData
-  };
-};
+// const mapStateToProps = state => {
+//   return {
+//     formData: state.formData
+//   };
+// };
 
-export default connect(mapStateToProps, { onADD })(FormData);
+// export default connect(mapStateToProps, { onADD })(FormData);
